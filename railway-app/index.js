@@ -45,6 +45,61 @@ async function generateImage(prompt, apiKey) {
   return Buffer.from(imagePart.inlineData.data, 'base64');
 }
 
+async function upscaleImage(imageBase64, apiKey) {
+  if (!apiKey) {
+    console.log('Replicate API key not set, skipping upscaling');
+    return imageBase64;
+  }
+
+  const imageDataUrl = `data:image/png;base64,${imageBase64.toString('base64')}`;
+
+  const createResponse = await fetch('https://api.replicate.com/v1/predictions', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      version: 'a45f82a1d6fab3e8622e8b207f47d81fc3ffe3fd3d3e37c5b5fcf3bed7b9ea92',
+      input: { image: imageDataUrl },
+    }),
+  });
+
+  if (!createResponse.ok) {
+    const text = await createResponse.text();
+    console.error(`Replicate API error ${createResponse.status}: ${text}`);
+    return imageBase64;
+  }
+
+  const prediction = await createResponse.json();
+  let predictionId = prediction.id;
+
+  for (let i = 0; i < 60; i++) {
+    const checkResponse = await fetch(`https://api.replicate.com/v1/predictions/${predictionId}`, {
+      headers: { 'Authorization': `Bearer ${apiKey}` },
+    });
+
+    if (!checkResponse.ok) break;
+
+    const checkPrediction = await checkResponse.json();
+    if (checkPrediction.status === 'succeeded') {
+      const upscaledUrl = checkPrediction.output?.[0];
+      if (upscaledUrl) {
+        const upscaledResponse = await fetch(upscaledUrl);
+        return await upscaledResponse.buffer();
+      }
+      break;
+    } else if (checkPrediction.status === 'failed') {
+      console.error('Replicate upscaling failed');
+      break;
+    }
+
+    await new Promise(resolve => setTimeout(resolve, 1000));
+  }
+
+  return imageBase64;
+}
+
 // Health check endpoint
 app.get('/health', (req, res) => {
   res.json({ status: 'ok' });
@@ -59,7 +114,12 @@ app.post('/generate', async (req, res) => {
 
     console.log(`Generating image for ${dateKey} using prompt #${entry.id}`);
 
-    const imageBuffer = await generateImage(entry.prompt, process.env.GEMINI_API_KEY);
+    let imageBuffer = await generateImage(entry.prompt, process.env.GEMINI_API_KEY);
+
+    if (process.env.REPLICATE_API_KEY) {
+      console.log(`Upscaling image with Real-ESRGAN...`);
+      imageBuffer = await upscaleImage(imageBuffer, process.env.REPLICATE_API_KEY);
+    }
 
     const bucket = admin.storage().bucket();
     const filePath = `daily-images/${dateKey}.png`;
