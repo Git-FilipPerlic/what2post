@@ -1,32 +1,152 @@
 [
-  { "id": 1, "prompt": "A serene sunrise over misty mountains, warm golden light, wide cinematic shot, photorealistic", "description": "Novi dan, nova prilika. Udahni duboko i kreni." },
-  { "id": 2, "prompt": "A single small plant sprouting through cracked concrete, soft morning light, macro photography", "description": "Rast dolazi i iz najtežih mesta." },
-  { "id": 3, "prompt": "A cozy reading nook with warm lamp light, rain on the window, watercolor illustration", "description": "Danas je dobar dan da usporiš malo." },
-  { "id": 4, "prompt": "A lighthouse standing strong against a stormy sea, dramatic lighting, oil painting style", "description": "Buđura postoje da bi te učinila stabilnijim." },
-  { "id": 5, "prompt": "A hot air balloon floating above a calm green valley at dawn, soft pastel colors", "description": "Podigni pogled malo iznad svakodnevice." },
-  { "id": 6, "prompt": "A steaming cup of coffee on a wooden table next to an open notebook, cozy morning flat lay", "description": "Prva stvar ujutru: jedan mali korak napred." },
-  { "id": 7, "prompt": "A winding path through an autumn forest covered in golden leaves, soft sunlight through trees", "description": "Put je važniji od brzine kojom se krećeš njime." },
-  { "id": 8, "prompt": "A minimalist mountain peak silhouette at sunset, gradient sky, flat vector illustration", "description": "Vrh se osvaja korak po korak." },
-  { "id": 9, "prompt": "An astronaut looking at Earth from space, peaceful and awe inspiring, digital art", "description": "Ponekad treba zakoračiti nazad da vidiš celu sliku." },
-  { "id": 10, "prompt": "A cat stretching lazily in a sunbeam on a windowsill, warm cozy photorealistic style", "description": "Odmor je deo produktivnosti, ne njena suprotnost." },
-  { "id": 11, "prompt": "An old wooden door opening into a bright blooming garden, magical realism style", "description": "Nove prilike često čekaju iza vrata koja još nisi otvorio." },
-  { "id": 12, "prompt": "A calm lake perfectly mirroring the mountains and sky at sunrise, ultra wide landscape photo", "description": "Mir spolja počinje mirom iznutra." },
-  { "id": 13, "prompt": "A runner on an empty beach at sunrise, footprints in the sand, motivational photo style", "description": "Disciplina je najveći oblik samopoštovanja." },
-  { "id": 14, "prompt": "A cluttered desk transforming into an organized minimalist workspace, split composition, digital illustration", "description": "Red spolja pravi prostor za fokus iznutra." },
-  { "id": 15, "prompt": "A single candle glowing in the dark, warm soft light, still life photography", "description": "Mala svetlost je dovoljna da razbije veliki mrak." },
-  { "id": 16, "prompt": "A hand watering a small tree sapling, warm afternoon light, hopeful illustration style", "description": "Ono što danas neguješ, sutra će te nositi." },
-  { "id": 17, "prompt": "A city skyline waking up at dawn, soft blue and orange gradient sky, wide shot", "description": "Dok drugi još spavaju, ti gradiš svoj dan." },
-  { "id": 18, "prompt": "A person standing at the top of a hill looking over a vast valley, back view, golden hour", "description": "Zastani na trenutak i pogledaj koliko si stigao." },
-  { "id": 19, "prompt": "A paper boat floating down a calm stream surrounded by green leaves, whimsical illustration", "description": "Ne moraš znati ceo tok reke da bi krenuo niz nju." },
-  { "id": 20, "prompt": "A bookshelf filled with colorful books and a warm reading lamp, cozy library corner", "description": "Svaki dan je šansa da naučiš nešto novo." },
-  { "id": 21, "prompt": "A pair of running shoes by the door with morning light streaming in, minimalist photo", "description": "Prvi korak je uvek najteži i najvažniji." },
-  { "id": 22, "prompt": "A field of sunflowers all facing the morning sun, vibrant warm colors, wide landscape", "description": "Okreni se ka onome što te hrani, a ne ka onome što te iscrpljuje." },
-  { "id": 23, "prompt": "A quiet mountain cabin with smoke rising from the chimney, snowy evening, warm window light", "description": "Kuća nije mesto, već osećaj mira koji nosiš sa sobom." },
-  { "id": 24, "prompt": "A compass resting on an old map, warm vintage lighting, adventure still life", "description": "Nije važno gde si sada, već u kom pravcu gledaš." },
-  { "id": 25, "prompt": "A butterfly emerging from a cocoon, soft natural light, macro nature photography", "description": "Promena je spor proces koji na kraju izgleda kao čuo." },
-  { "id": 26, "prompt": "A group of hands stacked together in support, warm sunset light, teamwork illustration", "description": "Ništa veliko nije napravljeno sasvim sam." },
-  { "id": 27, "prompt": "A quiet forest path with sunlight breaking through fog, early morning, cinematic photo", "description": "Ne moraš videti ceo put, samo sledeći korak." },
-  { "id": 28, "prompt": "A cup of tea and a journal on a windowsill overlooking rain, calm cozy scene", "description": "Zapiši danas jednu stvar na koju si ponosan." },
-  { "id": 29, "prompt": "A kite flying high in a clear blue sky above green hills, joyful and free, illustration style", "description": "Dopusti sebi malo lakoće danas." },
-  { "id": 30, "prompt": "A person planting a tree at golden hour, warm and hopeful, wide cinematic shot", "description": "Ono što sadiš danas, jednog dana će dati hlad nekome." }
+  {
+    "id": 1,
+    "prompt": "LUKSUZNA ROĐENDANSKA DEKORACIJA U BEOGRADSKOM RESTORANU, ELEGANTNI BALONI U PASTELNIM BOJAMA, SVETLEĆE IME OD STIROPORA, TOPLE LED LAMPICE, PROFESIONALNO OSVETLJENJE, FOTOREALISTIČNO, 4K, CINEMATIC LIGHTING",
+    "description": "✨ USLUGE KOJE SE PAMTE! 🎈 TRAŽITE SAVRŠENU DEKORACIJU ZA PROSLAVU U BEOGRADU? KOKA DECORE VAM DONOSI MAGIJU DIREKTNO IZ NAŠEG STUDIJA U CRVENKI! 🌟 U NAŠEM PAKETU DOBIJATE BALONE, SVETLEĆE IME OD STIROPORA, LAMPICE, PRSKALICE I PROFESIONALNO FOTOGRAFISANJE! 📸 📲 REZERVIŠITE SVOJ TERMIN NA VREME! #KOKADECORE #DEKORACIJAPROSLLAVA #BEOGRAD #ROĐENDANI #BALONI #PARTYDECOR"
+  },
+  {
+    "id": 2,
+    "prompt": "LUKSUZNI SLATKI STO, MAFINI U PROZIRNOM CELOFANU SA MAŠNICAMA, MINI KOLAČI, CUSTOM SLAMČICE, ČAŠE SA ŠTAMPOM, VRHUNSKA PREZENTACIJA, FOTOREALISTIČNO",
+    "description": "🧁 SLATKI ZALOGAJI ZA SVE PRILIKE! 🍬 DA LI STE ZNALI DA U PONUDI IMAMO I SAVRŠENO PAKOVANO SITNO SUVO DEZERTNO PECIVO I MAFINE U CELOFANU? 🎀 UVEK SVEŽE, UUKUSNO I VIZUELNO BESPREKORNO SPAKOVANO SA VAŠIM OMILJENIM DETALJIMA I CUSTOM SLAMČICAMA! 🧃✨ 👉 ZAVIRITE U NAŠU PONUDU I OSLADITE VAŠ SLAVLJENIČKI DAN! #KOKADECORE #KETERINGBEOGRAD #MAFINI #SLATKISTO #DEZERTI #PROSLAVE"
+  },
+  {
+    "id": 3,
+    "prompt": "ELEGANTNI STOLOVI ZA IZLAGANJE HRANE I DEKORACIJE, PLIŠANE IGRAČKE KAO DEKORATIVNI ELEMENTI, STAKLENE ČAŠE, LUKSUZNI ESCAJG, ENTERIJER ROĐENDAONICE, 4K",
+    "description": "🧸 LUKSUZ I ELEGANCIJA NA SVAKOM KORAKU! ✨ NAŠI STOLOVI ZA IZLAGANJE, PLIŠANE IGRAČKE, STAKLENE ČAŠE I POSEBAN ESCAJG PODIŽU SVAKU PROSLAVU NA POTPUNO NOVI NIVO! 🥂 SVA OPREMA SE DOSTAVLJA IZ NAŠEG MAGACINA U CRVENKI DIREKTNO NA VAŠU LOKACIJU U BEOGRADU! 🚚💨 📩 REZERVIŠITE SVOJ PAKET ODMAH! #KOKADECORE #PROSLAVEBEOGRAD #ROĐENDAONICE #DEKORACIJAPROSLAVA #EVENTDECOR"
+  },
+  {
+    "id": 4,
+    "prompt": "TRANSPORTNO VOZILO KOKA DECORE NA PUTU KA BEOGRADU, ZALOGAI PRELEPOG PEJZAŽA, PROFESIONALNA OPREMA U TOVARNOM PROSTORU, SUNČAN DAN, KINEZIK CINEMATIC",
+    "description": "🚗 PUTUJEMO ZBOG VAŠIH OSMEHA! 🌟 BILO DA JE PROSLAVA U BEOGRADU ILI OKOLINI, NAŠ TIM IZ CRVENKE STIŽE TAČNO NA VREME SA KOMPLETNOM OPREMOM ZA DEKORACIJU I KETERING! ⏱️🎉 SIGURNOST, TAČNOST I PROFESIONALNOST SU NAŠ PRIMARNI ZADATAK! 🛡️ #KOKADECORE #TRANSPORT #BEOGRAD #CRVENKA #ORGANIZACIJAPROSLLAVA"
+  },
+  {
+    "id": 5,
+    "prompt": "ROĐENDANSKA DEKORACIJA U KUĆNOJ ATMOSFERI, BALONI, IME OD STIROPORA, PRSKALICE, TOPLE LAMPICE, SREĆNA DECA I RODITELJI, SVETAO KODAK AMBIJENT",
+    "description": "🎈 PAKET SMALL - SAVRŠEN IZBOR ZA VAŠU KUĆNU PROSLAVU! 🏠 ZA SAMO 18.000 RSD DOBIJATE KOMPLETNU DEKORACIJU: BALONE, IME OD STIROPORA, LAMPICE, PRSKALICE, ČAŠE SA ŠTAMPOM I CUSTOM SLAMČICE! 🌟 I NAJBOLJE OD SVEGA - SVA ROBA OSTAJE VAMA NAKON PROSLAVE! 🎁 👉 PIŠITE NAM U DM ZA REZERVACIJE! #KOKADECORE #MALIROĐENDAN #DEKORACIJA #JEFTINODECOTORATION #BEOGRAD"
+  },
+  {
+    "id": 6,
+    "prompt": "BOGAT KETERING STO SA ROŠTILJEM, PUNJENIM KIFLICAMA, PRŠUTOM, KULENOM SA MASLINAMA, PANČETOM, PROFESIONALNO UREĐENO, APPETIZING, 4K",
+    "description": "🍖 PRAVI GASTRO UŽITAK ZA VAŠE GOSTE! 🧀 Pored VRHUNSKE DEKORACIJE, KOKA DECORE VAM NUDI I KOMPLETAN KETERING: DOMAĆI ROŠTILJ, PILEĆI FILE, PUNJENE KIFLICE, TUNA KREKERE, VRHUNSKU PRŠUTU I KULEN SA MASLINAMA! 🥖🍷 OSIGURAJTE NAJUKUSNIJI MENI ZA VAŠE SLAVLJE! #KOKADECORE #KETERING #HRANA #ROŠTILJ #BEOGRAD #GASTRONOMIJA"
+  },
+  {
+    "id": 7,
+    "prompt": "PROFESIONALNI FOTOGRAF I IZLAGAČ U CRNOJ ELEGANTNOJ POLO MAJICI I PRSLUKU SA LOGOTIPOM KOKA DECORE, DOK RADI NA POSTAVLJANJU DEKORACIJE, MODERAN ENTERIJER",
+    "description": "✨ PROFESIONALNOST SE VIDI U SVAKOM DETALJU! 📸 NAŠ TIM NA TERENU UVEK DOLAZI U PREPOZNATLJIVIM UNIFORMAMA KOKA DECORE, SPREMAN DA SVAKI DOGAĐAJ U BEOGRADU UČINI BESPREKORNIM! 👔🌟 POVERENJE I KVALITET SU NAŠ TEMELJ. #KOKADECORE #PROTIM #FOTOGRAF #DEKORATER #BEOGRAD #PROFESIONALCI"
+  },
+  {
+    "id": 8,
+    "prompt": "UNUTRAŠNJOST VRHUNSKE BEOGRADSKE ROĐENDAONICE SA BALONIMA I DEKORACIJOM KOKA DECORE, VESELA ATMOSFERA, BALONI U VAZDUHU, ŠARENO I RADOSNO",
+    "description": "🏰 DEKORIŠEMO NAJLEPŠE ROĐENDAONICE U BEOGRADU! 🎈 USPEŠNO SARAĐUJEMO SA TOP LOKALIMA KAO ŠTO SU JUHU, ZAMAK 1, DISKO KIDS, HAPPY-KLUBIĆ I MNOGI DRUGI! 🌟 ŽELITE LI DA VAŠA PROSLAVA U ROĐENDAONICI IZGLEDA KAO IZ BAJKE? KONTAKTIRAJTE NAS! 📲 #KOKADECORE #ROĐENDAONICE #BEOGRAD #DEKORACIJAZADECU #PROSLAVE"
+  },
+  {
+    "id": 9,
+    "prompt": "KRPICE I ČAŠE SA PERSONALIZOVANIM LOGOTIPOM I IMENOM SLAVLJENIKA, CUSTOM SLAMČICE U BOJI, MAKRO FOTOGRAFIJA, VISOK KVALITET ŠTAMPE",
+    "description": "🥤 PERSONALIZOVANI DETALJI KOJI PRAVE RAZLIKU! ✨ UČINITE DA SVAKA ČAŠA I SLAMČICA NA VAŠOJ PROSLAVI NOSE IME VAŠEG DETETA ILI JEDINSTVENI MOTIV! 🎈 ŠTAMPA NA ČAŠAMA I CUSTOM SLAMČICE SU HIT SEZONE U KOKA DECORE! 🎨 #KOKADECORE #PERSONALIZOVANO #SLAMČICE #ČAŠE #ŠTAMPA #ROĐENDAN"
+  },
+  {
+    "id": 10,
+    "prompt": "UNUTRAŠNJOST VELIKOG MODERNOG MAGACINA U CRVENKI, SLOŽENI BALONI, KUTIJE SA OPREMOM, MAŠINE ZA ŠTAMPU, UREDNO I ORGANIZOVANO",
+    "description": "📦 OVDJE NASTAJAO SVAKI VAŠ OSMEH! 🌟 ZAVIRITE NA TRENUTAK U NAŠ CENTRALNI MAGACIN U CRVENKI, ODAKLE SVAKODNEVNO PRIPREMAMO I ŠALJEMO NAJLEPŠE DEKORACIJE ZA BEOGRAD! 🚚💨 SVE JE SPREMNO ZA NOVE PROSLAVE! #KOKADECORE #MAGACIN #CRVENKA #BEOGRAD #IZA_KULISA #BEZBEDNO"
+  },
+  {
+    "id": 11,
+    "prompt": "HALLOWEEN ROĐENDANSKA DEKORACIJA, CRNI I NARANDŽASTI BALONI, SVETLEĆE BUNDEVE, PAUKOVE MREŽE, ELEGANTAN ZLOBAN AMBIJENT, ATMOSPHERIC LIGHTING, 4K",
+    "description": "🎃 JEZIVO DOBRA ZABAVA JE PRED STROKUM! 👻 BLIŽI SE HALLOWEEN! PRIPREMITE NAJSTRAŠNIJU I NAJZABAVNIJU PROSLAVU U BEOGRADU UZ SPECIJALNI KOKA DECORE HALLOWEEN PAKET! 🦇✨ REZERVACIJE SU OTVORENE - PIŠITE NAM U DM! #KOKADECORE #HALLOWEENBEOGRAD #NOĆVEŠTICA #DEKORACIJA #ZABAVA"
+  },
+  {
+    "id": 12,
+    "prompt": "HALLOWEEN SLATKI STO, MAFINI SA BUNDEVAMA I DUHOVIMA U CELOFANU, CRNI TANJIRI, CUSTOM SLAMČICE, PROFESIONALNO OSVETLJENJE",
+    "description": "🕸️ SLATKARIJE ILI ZAMKE?! 🍬 NAŠI HALLOWEEN MAFINI I PAKETIĆI U CELOFANU SU STIGLI! OSLADITE SVOJU TEMATSKU ZABAVU UZ NAJUKUSNIJE ZALOGAJE U GRADU! 🎃🕷️ #KOKADECORE #HALLOWEENKETERING #MAFINI #SLATKISTO #BEOGRAD"
+  },
+  {
+    "id": 13,
+    "prompt": "DEČJA ROĐENDAONICA DEKORISANA ZA NOĆ VEŠTICA, BALONI U OBLIKU BUNDEVE, VESELA DECA U KOSTIMIMA, MAGIČNA SVETLA",
+    "description": "🧙 NAJLUĐA NOĆ U ROĐENDAONICI! 🎈 Neka vaši mališani dožive pravu bajku za Noć veštica uz dekoraciju iz snova od Koka Decore! 🎃✨ Rezervišite termin na vreme! #KOKADECORE #HALLOWEENKIDS #ROĐENDAONICE #BEOGRAD #PARTYTIME"
+  },
+  {
+    "id": 14,
+    "prompt": "TRANSPORTNO VOZILO KOKA DECORE SA HALLOWEEN DEKORACIJAMA, NOĆNA VOŽNJA, SVETLA BEOGRADA U POZADINI",
+    "description": "🚐 DONOSIMO JEZIVU MAGIJU DIREKTNO NA VAŠU ADRESU! 🌃 Naš tim dostavlja Halloween dekoracije širom Beograda iz naše baze u Crvenci! Brzo, tačno i profesionalno! 🎃💨 #KOKADECORE #DOSTAVA #BEOGRAD #CRVENKA #HALLOWEENDECO"
+  },
+  {
+    "id": 15,
+    "prompt": "SPECIJALNI HALLOWEEN STOLOVI ZA IZLAGANJE, PLIŠANE IGRAČKE U KOSTIMIMA, CRNE ČAŠE, LUKSUZNI ESCAJG",
+    "description": "🔥 SPECIJALNE CENE ZA HALLOWEEN KAMPANJU! 🦇 Iskoristite naš dvonedeljni popust i obezbedite najekskluzivniju dekoraciju i ketering za vašu proslavu! 🎃🍷 #KOKADECORE #AKCIJA #HALLOWEEN2026 #BEOGRAD #SNIPPET"
+  },
+  {
+    "id": 16,
+    "prompt": "LUKSUZNA DEČJA DEKORACIJA SA PLAVIM I SREBRNIM BALONIMA, BALONI U OBLIKU ZVEZDA, SVETLEĆE LAMPICE, FANTAZIJSKI ENTERIJER, 4K",
+    "description": "⭐ MAGIJA ZA MALE SNOVE! 🌟 Baloni u obliku zvezdica, srebrnа svetla i fantazijski kostimi - sve što vašem detetu treba za savršen dan! 🎈 KOKA DECORE čini svaki detalj magičnim! 🎀 #KOKADECORE #DEČJADEKORACIJA #BALONI #ZVEZDE #BEOGRAD"
+  },
+  {
+    "id": 17,
+    "prompt": "BRAČNA PROSLAVA U RESTORANSKOJ ATMOSFERI, CRVENI I BELI BALONI, SVETLEĆE SRCE OD STIROPORA, ROMANTIČNO OSVETLJENJE, ELEGANTAN ESCAJG, 4K",
+    "description": "💕 LJUBAV JE U ZRAKU! 💍 Za posebne uspomene - dekoracija od srca! Naš KOKA DECORE tim pravi bračne proslave koje će vašeg partnera ostaviti bez daha! 🌹✨ REZERVACIJE: dm ili profil! 📲 #KOKADECORE #BRAČNAPROSLAVA #LJUBAV #DEKORACIJA #BEOGRAD"
+  },
+  {
+    "id": 18,
+    "prompt": "KORPORATIVNA PROSLAVA SA POSLOVNJAKA, SIVE I CRNE BOJE, PROFESIONALNI ESCAJG, DEKORATIVNI ELEMENTI SA LOGOTIPIMA, MODERAN DIZAJN, 4K",
+    "description": "💼 KORPORATIVNE PROSLAVE SA STILOM! 🎩 KOKA DECORE prilagoðava dekoraciju vašem brendu! Boje, logotipi, profesionalna atmosfera - sve prema vašim željama! 🏢✨ Za B2B ponude pišite nam! #KOKADECORE #KORPORATIVNA #BEOGRAD #BUSSINES #EVENTDECOR"
+  },
+  {
+    "id": 19,
+    "prompt": "VRTIĆ I ŠKOLSKA PROSLAVA SA ŽIVIM BALONIMA, BOJE DUGE, VESELO OSVETLJENJE, EDUKATIVNI DEKORATIVNI ELEMENTI, BEZBEDAN AMBIJENT, 4K",
+    "description": "🎨 ŠKOLSKE I VRTIĆKE PROSLAVE! 🎓 Boje, baloni, sigurnost - sve za vašu dečju instituciju! KOKA DECORE ima posebne pakete za škole i vrtiće sa ciljem da bude edukativno i veselo! 📚🎈 Kontaktirajte nas! #KOKADECORE #ŠKOLA #VRTIĆ #PROSLAVE #BEOGRAD"
+  },
+  {
+    "id": 20,
+    "prompt": "KETERING STO SA ZDRAVOM HRANOM, VOĆE, POVRĆE, MINI SENDVIČI, SVEŽ SOKOVI, ORGANSKO OSVETLJENJE, BRANDING ČAŠE, 4K FOTOGRAFIJA",
+    "description": "🥗 ZDRAVO I UKUSNO! 🥕 Ako zdravlje proslavljate, KOKA DECORE ima i zdravi ketering! Svežeg voća, povrća, mini sendviča - sve po vašim željama! 🍎✨ Tražite li nešto posebno? Pišite nam! #KOKADECORE #ZDRAVOKETERING #VOĆE #BEOGRAD #ORGANSKO"
+  },
+  {
+    "id": 21,
+    "prompt": "RETRO DEKORACIJA SA 80-IM I 90-IM GODINAMA, ŠARENI BALONI, NEON SVETLA, VINTAGE ELEMENTI, TOPLE LED LAMPICE, NOSTALGIČAN AMBIJENT, 4K",
+    "description": "🎬 VRAĆAMO SE U PROŠLOST! 📼 Neon svetla, retro boje, vintage savršenstvo - KOKA DECORE pravi dekoracije koje vas vode u detinjstvo! 🎸✨ Rezervišite svoju retro proshlavu! #KOKADECORE #RETRO #80S #90S #BEOGRAD"
+  },
+  {
+    "id": 22,
+    "prompt": "PRIRODNA DEKORACIJA SA BILJKAMA, ZELENILOM, PRIRODNIM BALONIMA, ECO-FRIENDLY MATERIJALI, ZAHTEV ZA ODRŽIVOST, SVETAO AMBIJENT, 4K",
+    "description": "🌿 EKO-PROSLAVE! 🌱 Za one koji brinu o planeti - KOKA DECORE nudi ekološki prihvatljive dekoracije sa prirodnim biljkama i zelenim baloni! ♻️✨ Zelenilo, lepota, odgovornost! #KOKADECORE #EKOPROSLAVA #BEOGRAD #ODRŽIVOST"
+  },
+  {
+    "id": 23,
+    "prompt": "TEMATSKA DEKORACIJA SA ŽANROM PUTOVANJA, MAPA I KUFER, AVIONSKE BOJE, ADVENTURE ELEMENTI, WORLD MAP POSTER, CINEMATIC LIGHTING, 4K",
+    "description": "✈️ VESTI NA PUTOVANJE! 🗺️ Za one koji sanjaju o putovanju - KOKA DECORE pravi tematske proslave putovanja! Mape, kuferi, flight boards! 🧳✨ Rezervišite sveću pustolovinu! #KOKADECORE #PUTOVANJE #ADVENTURE #BEOGRAD #WORLD"
+  },
+  {
+    "id": 24,
+    "prompt": "FILMSKA NOĆI DEKORACIJA, KINEMATOGRAFSKI ELEMENTI, FILM STRIP, POPCORN STO, PROJEKCIJA, CRVENI TEPIHI, ZVEZDE U POZADINI, 4K",
+    "description": "🎬 KINEMATIČKA NOĆ! 🍿 Popcorn, film reels, crveni tepih - KOKA DECORE pravi proslave kao iz Hollywoodskog filma! 🎥✨ Budi zvezda svojeg dana! #KOKADECORE #KINOPROSLAVA #HOLLYWOOD #BEOGRAD #MOVIES"
+  },
+  {
+    "id": 25,
+    "prompt": "MUSIK FESTIVAL DEKORACIJA, BINA, SVETLOSNI EFEKTI, VELIKIH BALONI U ZVUČNIM OBLICIMA, DJ PULPYT, FLUORESCENT BOJE, ENERGIJA, 4K",
+    "description": "🎵 MUZIČKA EKSPLOZIJA! 🎧 Za ljubitelje muzike - KOKA DECORE pravi proslave sa scenskom energijom! Bina, svetla, muzika! 🎸✨ Rezervišite vašu muzičku noć! #KOKADECORE #MUZIKA #FESTIVAL #BEOGRAD #DJ"
+  },
+  {
+    "id": 26,
+    "prompt": "MONARHIJALNA DEKORACIJA, KRUNA, ZLATO I PURPURA, LUKSUZNI TRONOVI, KRALJEVSKI ESCAJG, ELEGANTNO OSVETLJENJE, KLASIČNO LUKSUZ, 4K",
+    "description": "👑 KRALJEVSKE PROSLAVE! 💎 Krune, zlato, purpura - KOKA DECORE čini vas kraljevima/karaljevinama svoga dana! 👸🤴✨ Luksuz bez granica! #KOKADECORE #KRALJ #KRALJICA #LUKSUZ #BEOGRAD"
+  },
+  {
+    "id": 27,
+    "prompt": "SCI-FI FUTURISTIČKA DEKORACIJA, NEON SVETLA, HOLOGRAFSKI EFEKTI, LASERSKE LINIJE, FUTURISTIČKE BOJE, РОБОТ ELEMENTI, 4K",
+    "description": "🚀 BUDUĆNOST JE SADA! 🤖 Holografski efekti, neon svetla, futuristička lepota - KOKA DECORE vodi vas u budućnost! 🛸✨ Rezervišite svoju sci-fi proslavu! #KOKADECORE #SCIFI #FUTURIZAM #BEOGRAD #LAZER"
+  },
+  {
+    "id": 28,
+    "prompt": "PRIRODA I ŠUMA DEKORACIJA, DRVEĆE, CVEĆE, PTICA, PRIRODNO OSVETLJENJE, ORGANSKO DOBAR AMBIJENT, PRIRODNA BOJA PALETA, 4K",
+    "description": "🌲 ŠUMSKA MAGIJA! 🦌 Priroda u gradu - KOKA DECORE donosi šumu, drveće i prirodnu lepotu na vašu proslavu! 🌳✨ Zaranjajte se u zelenu bajku! #KOKADECORE #ŠUMA #PRIRODA #BEOGRAD #ORGANSKO"
+  },
+  {
+    "id": 29,
+    "prompt": "SPORTSKA DEKORACIJA, BALONI U BOJI TIMOVA, TROFEI, SPORTSKI ELEMENTI, ENERGIJA I TAKMIČENJE, VIBRANTNO OSVETLJENJE, 4K",
+    "description": "⚽ SPORTSKA POBEDA! 🏆 Za sportiste - KOKA DECORE pravi proslave sa energijom vašeg omiljenog tima! Boje, trofei, pobedničko osvetljenje! 🎯✨ Budeš šampion! #KOKADECORE #SPORT #FUDBAL #BEOGRAD #POBEDA"
+  },
+  {
+    "id": 30,
+    "prompt": "ZAVRŠNA DEKORACIJA - ZAHVALNOST I SVETLO, SVEĆE, SRCA, ZLATNA SVETLA, TOPLA ATMOSFERA, PORODIČNI AMBIJENT, MEĐUSOBNA LJUBAV, 4K",
+    "description": "💛 HVALA VAMA! ✨ KOKA DECORE se zahvaljuje svakom klijentu na poverenju! Ova proslava je posvećena vama - najboljim kupcima, vašim osmesima i vašoj ljubavi! 🙏💕 Do sledeće proslave! #KOKADECORE #HVALA #BEOGRAD #LJUBAV #ZAJEDNICA"
+  }
 ]
