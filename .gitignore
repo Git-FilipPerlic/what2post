@@ -1,0 +1,33 @@
+# Guard folder with sensitive credentials
+guard/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Flutter
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+build/
+*.iml
+
+# Node
+node_modules/
+package-lock.json
+dist/
+
+# Firebase
+.firebaserc
+firebase-debug.log
+
+# OS
+.DS_Store
+Thumbs.db
