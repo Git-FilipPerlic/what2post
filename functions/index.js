@@ -5,7 +5,7 @@ const fetch = require('node-fetch');
 admin.initializeApp();
 const db = admin.firestore();
 
-const REPLICATE_API_TOKEN = process.env.REPLICATE_API_TOKEN;
+const REPLICATE_API_TOKEN = process.env.REPLICATE_API_KEY2;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 exports.generate = functions.https.onRequest(async (req, res) => {
