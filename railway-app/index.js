@@ -125,9 +125,9 @@ app.get('/generate', async (req, res) => {
 
     let imageBuffer = await generateImage(entry.prompt, process.env.GEMINI_API_KEY);
 
-    if (process.env.REPLICATE_API_KEY) {
+    if (process.env.REPLICATE_API_KEY2) {
       console.log(`Upscaling image with Real-ESRGAN...`);
-      imageBuffer = await upscaleImage(imageBuffer, process.env.REPLICATE_API_KEY);
+      imageBuffer = await upscaleImage(imageBuffer, process.env.REPLICATE_API_KEY2);
     }
 
     const bucket = admin.storage().bucket();
