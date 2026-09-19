@@ -106,7 +106,7 @@ app.get('/health', (req, res) => {
 });
 
 // Main endpoint — generates daily image
-app.post('/generate', async (req, res) => {
+app.get('/generate', async (req, res) => {
   try {
     const now = new Date();
     const dateKey = now.toISOString().slice(0, 10);
