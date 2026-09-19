@@ -6,6 +6,9 @@ import 'firebase_options.dart';
 import 'screens/home_screen.dart';
 import 'services/notification_service.dart';
 
+const pastelRoza = Color(0xFFE8B4C8);
+const grimizna = Color(0xFFDC143C);
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
@@ -22,9 +25,16 @@ class What2PostApp extends StatelessWidget {
     return MaterialApp(
       title: 'What2Post',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(colorSchemeSeed: Colors.indigo, useMaterial3: true),
-      darkTheme:
-          ThemeData(colorSchemeSeed: Colors.indigo, brightness: Brightness.dark, useMaterial3: true),
+      theme: ThemeData(
+        colorSchemeSeed: pastelRoza,
+        useMaterial3: true,
+        brightness: Brightness.light,
+      ),
+      darkTheme: ThemeData(
+        colorSchemeSeed: grimizna,
+        useMaterial3: true,
+        brightness: Brightness.dark,
+      ),
       home: const HomeScreen(),
     );
   }

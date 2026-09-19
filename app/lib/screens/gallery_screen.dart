@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'dart:io';
@@ -6,7 +7,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
 
 class GalleryScreen extends StatefulWidget {
-  const GalleryScreen({Key? key}) : super(key: key);
+  const GalleryScreen({super.key});
 
   @override
   State<GalleryScreen> createState() => _GalleryScreenState();
