@@ -2,10 +2,5 @@
   "$schema": "https://railway.app/railway.schema.json",
   "deploy": {
     "startCommand": "cd railway-app && npm install && npm start"
-  },
-  "variables": {
-    "REPLICATE_API_KEY2": "",
-    "GEMINI_API_KEY": "",
-    "FIREBASE_PROJECT_ID": "what2post-21d07"
   }
 }
