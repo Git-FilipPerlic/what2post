@@ -23,26 +23,35 @@ function pickPromptForToday(date) {
 
 async function generateImage(prompt, apiKey) {
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${apiKey}`;
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      contents: [{ parts: [{ text: prompt }] }],
-    }),
-  });
 
-  if (!response.ok) {
-    const text = await response.text();
-    throw new Error(`Gemini API error ${response.status}: ${text}`);
-  }
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 60000); // 60 second timeout
 
-  const data = await response.json();
-  const parts = data?.candidates?.[0]?.content?.parts ?? [];
-  const imagePart = parts.find((p) => p?.inlineData?.data);
-  if (!imagePart) {
-    throw new Error('Gemini response did not include an image part');
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: prompt }] }],
+      }),
+      signal: controller.signal,
+    });
+
+    if (!response.ok) {
+      const text = await response.text();
+      throw new Error(`Gemini API error ${response.status}: ${text}`);
+    }
+
+    const data = await response.json();
+    const parts = data?.candidates?.[0]?.content?.parts ?? [];
+    const imagePart = parts.find((p) => p?.inlineData?.data);
+    if (!imagePart) {
+      throw new Error('Gemini response did not include an image part');
+    }
+    return Buffer.from(imagePart.inlineData.data, 'base64');
+  } finally {
+    clearTimeout(timeoutId);
   }
-  return Buffer.from(imagePart.inlineData.data, 'base64');
 }
 
 async function upscaleImage(imageBase64, apiKey) {
