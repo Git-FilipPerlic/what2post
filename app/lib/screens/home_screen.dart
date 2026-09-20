@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../models/daily_image.dart';
+import 'fullscreen_image_screen.dart';
+import 'gallery_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -11,6 +13,17 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('What2Post'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.collections),
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const GalleryScreen()),
+            ),
+          ),
+        ],
+      ),
       body: SafeArea(
         child: StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
           stream: FirebaseFirestore.instance
@@ -19,10 +32,48 @@ class HomeScreen extends StatelessWidget {
               .snapshots(),
           builder: (context, snapshot) {
             if (snapshot.hasError) {
-              return Center(child: Text('Greška: ${snapshot.error}'));
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.error, size: 48, color: Colors.red),
+                    const SizedBox(height: 16),
+                    Text('Greška: ${snapshot.error}'),
+                  ],
+                ),
+              );
             }
-            if (!snapshot.hasData || !snapshot.data!.exists) {
-              return const Center(child: CircularProgressIndicator());
+            if (!snapshot.hasData) {
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const CircularProgressIndicator(),
+                    const SizedBox(height: 16),
+                    const Text('Učitavanje...'),
+                  ],
+                ),
+              );
+            }
+            if (!snapshot.data!.exists) {
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.image_not_supported, size: 48),
+                    const SizedBox(height: 16),
+                    const Text('Nema dostupne slike'),
+                    const SizedBox(height: 32),
+                    ElevatedButton.icon(
+                      onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(builder: (_) => const GalleryScreen()),
+                      ),
+                      icon: const Icon(Icons.collections),
+                      label: const Text('Prethodne slike'),
+                    ),
+                  ],
+                ),
+              );
             }
 
             final image = DailyImage.fromFirestore(snapshot.data!.data()!);
@@ -32,14 +83,25 @@ class HomeScreen extends StatelessWidget {
                 Expanded(
                   child: image.imageUrl.isEmpty
                       ? const Center(child: Text('Slika još nije spremna'))
-                      : CachedNetworkImage(
-                          imageUrl: image.imageUrl,
-                          fit: BoxFit.contain,
-                          width: double.infinity,
-                          placeholder: (context, url) =>
-                              const Center(child: CircularProgressIndicator()),
-                          errorWidget: (context, url, error) =>
-                              const Center(child: Icon(Icons.broken_image)),
+                      : GestureDetector(
+                          onTap: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) => FullscreenImageScreen(
+                                imageUrl: image.imageUrl,
+                                description: image.description,
+                                date: image.date,
+                              ),
+                            ),
+                          ),
+                          child: CachedNetworkImage(
+                            imageUrl: image.imageUrl,
+                            fit: BoxFit.contain,
+                            width: double.infinity,
+                            placeholder: (context, url) =>
+                                const Center(child: CircularProgressIndicator()),
+                            errorWidget: (context, url, error) =>
+                                const Center(child: Icon(Icons.broken_image)),
+                          ),
                         ),
                 ),
                 Padding(

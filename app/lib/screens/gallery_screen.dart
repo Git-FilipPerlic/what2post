@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'dart:io';
-import 'package:path_provider/path_provider.dart';
+import 'package:gal/gal.dart';
 import 'package:http/http.dart' as http;
+
+import 'fullscreen_image_screen.dart';
 
 class GalleryScreen extends StatefulWidget {
   const GalleryScreen({super.key});
@@ -17,6 +18,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
   late FirebaseFirestore _firestore;
   List<Map<String, dynamic>> _images = [];
   bool _isLoading = true;
+  String? _savingId;
 
   @override
   void initState() {
@@ -34,6 +36,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
 
       setState(() {
         _images = snapshot.docs
+            .where((doc) => doc.id != 'latest')
             .map((doc) => {
                   'id': doc.id,
                   'date': doc['date'] ?? 'Unknown',
@@ -55,23 +58,27 @@ class _GalleryScreenState extends State<GalleryScreen> {
   }
 
   Future<void> _downloadImage(String url, String date) async {
+    setState(() => _savingId = date);
     try {
       final response = await http.get(Uri.parse(url));
-      final directory = await getApplicationDocumentsDirectory();
-      final file = File('${directory.path}/koka-decore-$date.png');
-      await file.writeAsBytes(response.bodyBytes);
+      await Gal.putImageBytes(
+        response.bodyBytes,
+        name: 'koka-decore-$date',
+      );
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('✓ Saved to ${file.path}')),
+          const SnackBar(content: Text('✓ Sačuvano u galeriju')),
         );
       }
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error downloading: $e')),
+          SnackBar(content: Text('Greška pri čuvanju: $e')),
         );
       }
+    } finally {
+      if (mounted) setState(() => _savingId = null);
     }
   }
 
@@ -112,19 +119,15 @@ class _GalleryScreenState extends State<GalleryScreen> {
                 )
               : RefreshIndicator(
                   onRefresh: _loadImages,
-                  child: GridView.builder(
+                  child: ListView.builder(
                     padding: const EdgeInsets.all(16),
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 12,
-                      mainAxisSpacing: 12,
-                      childAspectRatio: 0.8,
-                    ),
                     itemCount: _images.length,
                     itemBuilder: (context, index) {
                       final image = _images[index];
-                      return _buildImageCard(image);
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 16),
+                        child: _buildImageCard(image),
+                      );
                     },
                   ),
                 ),
@@ -132,16 +135,26 @@ class _GalleryScreenState extends State<GalleryScreen> {
   }
 
   Widget _buildImageCard(Map<String, dynamic> image) {
+    final isSaving = _savingId == image['date'];
     return Card(
       elevation: 4,
+      clipBehavior: Clip.antiAlias,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Expanded(
-            child: ClipRRect(
-              borderRadius:
-                  const BorderRadius.vertical(top: Radius.circular(16)),
+          GestureDetector(
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (_) => FullscreenImageScreen(
+                  imageUrl: image['imageUrl'] ?? '',
+                  description: image['description'] ?? '',
+                  date: image['date'] ?? '',
+                ),
+              ),
+            ),
+            child: AspectRatio(
+              aspectRatio: 1,
               child: CachedNetworkImage(
                 imageUrl: image['imageUrl'] ?? '',
                 fit: BoxFit.cover,
@@ -156,6 +169,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
             padding: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
                   _formatDate(image['date']),
@@ -164,13 +178,13 @@ class _GalleryScreenState extends State<GalleryScreen> {
                       fontWeight: FontWeight.bold,
                       color: Color(0xFF0066CC)),
                 ),
-                const SizedBox(height: 12),
+                const SizedBox(height: 8),
                 Text(
                   image['description'],
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
-                    fontSize: 18,
+                    fontSize: 15,
                     fontWeight: FontWeight.w500,
                     height: 1.4,
                     color: Color(0xFF212529),
@@ -181,18 +195,27 @@ class _GalleryScreenState extends State<GalleryScreen> {
                   children: [
                     Expanded(
                       child: ElevatedButton.icon(
-                        onPressed: () =>
-                            _downloadImage(image['imageUrl'], image['date']),
-                        icon: const Icon(Icons.download, size: 20),
+                        onPressed: isSaving
+                            ? null
+                            : () => _downloadImage(
+                                image['imageUrl'], image['date']),
+                        icon: isSaving
+                            ? const SizedBox(
+                                width: 16,
+                                height: 16,
+                                child: CircularProgressIndicator(
+                                    strokeWidth: 2, color: Colors.white),
+                              )
+                            : const Icon(Icons.download, size: 18),
                         label: const Text('Save',
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 14,
                               fontWeight: FontWeight.bold,
                             )),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF0066CC),
                           foregroundColor: Colors.white,
-                          padding: const EdgeInsets.symmetric(vertical: 14),
+                          padding: const EdgeInsets.symmetric(vertical: 12),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
@@ -204,16 +227,16 @@ class _GalleryScreenState extends State<GalleryScreen> {
                       child: ElevatedButton.icon(
                         onPressed: () =>
                             _copyCaption(image['description']),
-                        icon: const Icon(Icons.copy, size: 20),
+                        icon: const Icon(Icons.copy, size: 18),
                         label: const Text('Copy',
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 14,
                               fontWeight: FontWeight.bold,
                             )),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFFFF6B35),
                           foregroundColor: Colors.white,
-                          padding: const EdgeInsets.symmetric(vertical: 14),
+                          padding: const EdgeInsets.symmetric(vertical: 12),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
