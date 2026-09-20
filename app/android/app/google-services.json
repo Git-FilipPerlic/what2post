@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1065325057080",
+    "project_id": "what2post-21d07",
+    "storage_bucket": "what2post-21d07.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1065325057080:android:72b4c1d663f3db8e62c2cd",
+        "android_client_info": {
+          "package_name": "com.what2post.daily_image_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4S67A63rTgoWUbu25IVVXdEWFJm2h37I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

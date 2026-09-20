@@ -18,6 +18,7 @@ guard/
 .flutter-plugins-dependencies
 build/
 *.iml
+android/.kotlin/
 
 # Node
 node_modules/
