@@ -79,7 +79,7 @@ async function upscaleImage(imageBase64, apiKey) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      version: 'a45f82a1d6fab3e8622e8b207f47d81fc3ffe3fd3d3e37c5b5fcf3bed7b9ea92',
+      version: 'b3ef194191d13140337468c916c2c5b96dd0cb06dffc032a022a31807f6a5ea8',
       input: { image: imageDataUrl },
     }),
   });
