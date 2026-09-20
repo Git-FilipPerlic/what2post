@@ -1,18 +1,31 @@
 const express = require('express');
 const admin = require('firebase-admin');
+const fs = require('fs');
+const path = require('path');
 const prompts = require('./prompts.json');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-const GEMINI_MODEL = 'gemini-2.5-flash-image';
+const POLLINATIONS_MODEL = 'flux';
 const FCM_TOPIC = 'daily-image';
 
-// Initialize Firebase with service account
+// Images are saved to Railway's own disk and served by this app, so no
+// Firebase Storage bucket (which requires the Blaze/billing plan) is needed.
+const IMAGES_DIR = process.env.IMAGES_DIR || path.join(__dirname, 'daily-images');
+fs.mkdirSync(IMAGES_DIR, { recursive: true });
+app.use('/images', express.static(IMAGES_DIR, { maxAge: '365d', immutable: true }));
+
+function publicBaseUrl() {
+  if (process.env.PUBLIC_BASE_URL) return process.env.PUBLIC_BASE_URL;
+  if (process.env.RAILWAY_PUBLIC_DOMAIN) return `https://${process.env.RAILWAY_PUBLIC_DOMAIN}`;
+  return `http://localhost:${port}`;
+}
+
+// Initialize Firebase with service account (used for Firestore + FCM only)
 const serviceAccount = JSON.parse(process.env.FIREBASE_CONFIG);
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  storageBucket: serviceAccount.project_id + '.appspot.com',
 });
 
 function pickPromptForToday(date) {
@@ -22,36 +35,33 @@ function pickPromptForToday(date) {
 }
 
 async function generateImage(prompt, apiKey) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${apiKey}`;
+  const response = await fetch('https://gen.pollinations.ai/v1/images/generations', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      model: POLLINATIONS_MODEL,
+      prompt,
+      response_format: 'url',
+    }),
+  });
 
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 60000); // 60 second timeout
-
-  try {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-      }),
-      signal: controller.signal,
-    });
-
-    if (!response.ok) {
-      const text = await response.text();
-      throw new Error(`Gemini API error ${response.status}: ${text}`);
-    }
-
-    const data = await response.json();
-    const parts = data?.candidates?.[0]?.content?.parts ?? [];
-    const imagePart = parts.find((p) => p?.inlineData?.data);
-    if (!imagePart) {
-      throw new Error('Gemini response did not include an image part');
-    }
-    return Buffer.from(imagePart.inlineData.data, 'base64');
-  } finally {
-    clearTimeout(timeoutId);
+  if (!response.ok) {
+    const text = await response.text();
+    throw new Error(`Pollinations generate error ${response.status}: ${text}`);
   }
+
+  const data = await response.json();
+  const imageUrl = data?.data?.[0]?.url;
+  if (!imageUrl) {
+    throw new Error('Pollinations response did not include an image URL');
+  }
+
+  const imageResponse = await fetch(imageUrl);
+  const arrayBuffer = await imageResponse.arrayBuffer();
+  return Buffer.from(arrayBuffer);
 }
 
 async function upscaleImage(imageBase64, apiKey) {
@@ -123,19 +133,21 @@ app.get('/generate', async (req, res) => {
 
     console.log(`Generating image for ${dateKey} using prompt #${entry.id}`);
 
-    let imageBuffer = await generateImage(entry.prompt, process.env.GEMINI_API_KEY);
+    const pollinationsApiKey = process.env.POLLINATIONS_API_KEY;
+    if (!pollinationsApiKey) {
+      throw new Error('POLLINATIONS_API_KEY is not set');
+    }
+
+    let imageBuffer = await generateImage(entry.prompt, pollinationsApiKey);
 
     if (process.env.REPLICATE_API_KEY2) {
       console.log(`Upscaling image with Real-ESRGAN...`);
       imageBuffer = await upscaleImage(imageBuffer, process.env.REPLICATE_API_KEY2);
     }
 
-    const bucket = admin.storage().bucket();
-    const filePath = `daily-images/${dateKey}.png`;
-    const file = bucket.file(filePath);
-    await file.save(imageBuffer, { contentType: 'image/png' });
-    await file.makePublic();
-    const imageUrl = `https://storage.googleapis.com/${bucket.name}/${filePath}`;
+    const fileName = `${dateKey}.png`;
+    fs.writeFileSync(path.join(IMAGES_DIR, fileName), imageBuffer);
+    const imageUrl = `${publicBaseUrl()}/images/${fileName}`;
 
     const doc = {
       date: dateKey,
@@ -158,7 +170,7 @@ app.get('/generate', async (req, res) => {
       data: { imageUrl, date: dateKey },
     });
 
-    console.log(`Done: ${filePath}`);
+    console.log(`Done: ${fileName}`);
     res.json({ success: true, date: dateKey, imageUrl });
   } catch (error) {
     console.error('Error:', error);

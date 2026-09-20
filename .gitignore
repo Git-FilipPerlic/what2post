@@ -24,6 +24,9 @@ node_modules/
 package-lock.json
 dist/
 
+# Railway app local storage (production images live on a Railway volume)
+railway-app/daily-images/
+
 # Firebase
 .firebaserc
 firebase-debug.log
